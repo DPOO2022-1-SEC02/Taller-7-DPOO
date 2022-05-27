@@ -45,8 +45,8 @@ public class Categoria extends NodoAlmacen
 
     /**
      * Construye una nueva categoría sin nodosHijos.<br>
-     * <b>post: </b> Se inicializaron los atributos de la clase padre con los valores dados por parámetro y el tipo respectivo. Se inicializó la lista de nodosHijos como una lista
-     * vacía.
+     * <b>post: </b> Se inicializaron los atributos de la clase padre con los valores dados por parámetro y el tipo respectivo. 
+     * Se inicializó la lista de nodosHijos como una lista vacía.
      * @param pIdentificador Identificador único de la marca. pIdentificador != null && pIdentificador != "".
      * @param pNombre Nombre de la categoría. pNombre != null && pNombre != "".
      */

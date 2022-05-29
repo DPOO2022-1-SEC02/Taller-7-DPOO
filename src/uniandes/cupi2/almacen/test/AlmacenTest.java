@@ -94,7 +94,7 @@ class AlmacenTest {
 		assertEquals("Respuesta 2",this.almacen.metodo2());
 	}
 	
-	//Pruebas raras de german
+	//Pruebas raras de german que claramente funcionan bien
     @Test
     void pruebaRetornoCategoria()throws AlmacenException{
         var miAlmacen = new Almacen(new File("./data/datos.txt"));

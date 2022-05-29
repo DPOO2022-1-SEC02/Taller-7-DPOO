@@ -118,11 +118,28 @@ class AlmacenTest {
         var miAlmacen = new Almacen(new File("./data/datos.txt"));
 
     }
-    /*
+    
+    
+    
+    
     //Pruebas de Categoria
+    
     @Test
-    void testDarNodos() {
+    public void darLista() {
     	assertFalse(this.almacen.darCategoriaRaiz().darNodos().isEmpty());
+    	assertFalse(this.almacen.darCategoriaRaiz().darProductos().isEmpty());
+    	assertFalse(this.almacen.darCategoriaRaiz().darPosorden().isEmpty());
+    	assertFalse(this.almacen.darCategoriaRaiz().darPreorden().isEmpty());
+    }
+    
+    @Test
+    public void valorVentas() {
+    	assertEquals(0, this.almacen.buscarNodo("112").darValorVentas(),0);
+    }
+    
+    @Test
+    public void agregarNodoNuevaCategoria() throws AlmacenException {
+    	this.categoria.agregarNodo("11223344", "Categoria", "12043", "Alo");
     }
     
     @Test
@@ -131,5 +148,5 @@ class AlmacenTest {
     	cat = this.almacen.darCategoriaRaiz().buscarPadre("1111");
     	assertEquals("111",cat.darIdentificador());
     }
-    */
+    
 }

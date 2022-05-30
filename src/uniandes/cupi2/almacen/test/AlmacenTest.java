@@ -24,6 +24,8 @@ class AlmacenTest {
 	{
 		this.almacen = new Almacen(new File("data/datos.txt"));
 		this.categoria = new Categoria("testIdentificador","testNombre");
+		this.almacen.agregarProducto("1112", "codigoTest", "nombreTest", "descripcionTest", 18519198);
+		this.almacen.agregarNodo("111", "Marca", "1313", "Frailejon");
 	}
 	
 	@Test
@@ -44,7 +46,6 @@ class AlmacenTest {
 	@Test
 	void TestAgregarNodo() throws AlmacenException
 	{
-		this.almacen.agregarNodo("111", "Marca", "1313", "Frailejon");
 		assertEquals("Frailejon",this.almacen.buscarNodo("1313").darNombre());				
 	}
 	
@@ -53,7 +54,6 @@ class AlmacenTest {
 	@Test
 	void TestAgregarProducto() throws AlmacenException
 	{
-		this.almacen.agregarProducto("1112", "codigoTest", "nombreTest", "descripcionTest", 18519198);
 		assertEquals("codigoTest",this.almacen.darCategoriaRaiz().buscarProducto("codigoTest").darCodigo());
 		assertEquals("nombreTest",this.almacen.darCategoriaRaiz().buscarProducto("codigoTest").darNombre());
 		assertEquals("descripcionTest",this.almacen.darCategoriaRaiz().buscarProducto("codigoTest").darDescripcion());
@@ -148,5 +148,17 @@ class AlmacenTest {
     	cat = this.almacen.darCategoriaRaiz().buscarPadre("1111");
     	assertEquals("111",cat.darIdentificador());
     }
+    
+    
+    @Test
+	public void agregarUnProductoExistente() {
+		assertThrows(AlmacenException.class,() -> this.almacen.agregarProducto("1112", "codigoTest", "nombreTest", "descripcionTest", 18519198));
+	}
+    @Test
+	public void agregarUnNodoLanzaExcepcion() {
+		
+		assertThrows(AlmacenException.class,() -> this.almacen.agregarNodo("111", "Marca", "1313", "Frailejon"));
+	}
+	
     
 }

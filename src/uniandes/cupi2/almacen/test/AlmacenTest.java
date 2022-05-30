@@ -46,7 +46,8 @@ class AlmacenTest {
 	@Test
 	void TestAgregarNodo() throws AlmacenException
 	{
-		assertEquals("Frailejon",this.almacen.buscarNodo("1313").darNombre());				
+		this.almacen.agregarNodo("111", "Marca", "1322", "Frailejon");
+		assertEquals("Frailejon",this.almacen.buscarNodo("1322").darNombre());				
 	}
 	
 	//Aqui se hace test tambien de Categoria.buscarProducto
@@ -54,10 +55,11 @@ class AlmacenTest {
 	@Test
 	void TestAgregarProducto() throws AlmacenException
 	{
-		assertEquals("codigoTest",this.almacen.darCategoriaRaiz().buscarProducto("codigoTest").darCodigo());
-		assertEquals("nombreTest",this.almacen.darCategoriaRaiz().buscarProducto("codigoTest").darNombre());
-		assertEquals("descripcionTest",this.almacen.darCategoriaRaiz().buscarProducto("codigoTest").darDescripcion());
-		assertEquals(18519198,this.almacen.darCategoriaRaiz().buscarProducto("codigoTest").darPrecio());
+		this.almacen.agregarProducto("1111", "testCodigo", "testNombre", "testDescripcion", 18519198);
+		assertEquals("testCodigo",this.almacen.darCategoriaRaiz().buscarProducto("testCodigo").darCodigo());
+		assertEquals("testNombre",this.almacen.darCategoriaRaiz().buscarProducto("testCodigo").darNombre());
+		assertEquals("testDescripcion",this.almacen.darCategoriaRaiz().buscarProducto("testCodigo").darDescripcion());
+		assertEquals(18519198,this.almacen.darCategoriaRaiz().buscarProducto("testCodigo").darPrecio());
 	}
 	@Test
 	void TestAgregarProductoExcepcion() throws AlmacenException
